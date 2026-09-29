@@ -7,22 +7,23 @@ import {
   FaArrowRight,
   FaDownload,
   FaCode,
-  FaUsers,
-  FaBookOpen,
-  FaMapMarkerAlt,
-  FaClock,
-  FaHeart,
-  FaExternalLinkAlt,
-  FaLaptopCode,
-  FaMobileAlt,
+  FaServer,
   FaDatabase,
   FaGitAlt,
+  FaLinux,
+  FaReact,
+  FaMobileAlt,
+  FaGlobe,
   FaUser,
-  FaServer,
-  FaDocker,
+  FaBriefcase,
+  FaGraduationCap,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 
 import "./App.css";
+
 
 /* =========================================================
    HEADER
@@ -86,13 +87,13 @@ function Footer() {
           </div>
 
           <p>
-            Building secure, practical, and user-focused
-            digital experiences.
+            Software developer focused on building practical,
+            secure, and meaningful digital solutions.
           </p>
 
-          <span className="footer-tagline">
-            CODE · CREATE · IMPACT
-          </span>
+          <div className="footer-tagline">
+            BUILD • LEARN • CREATE
+          </div>
 
         </div>
 
@@ -100,7 +101,7 @@ function Footer() {
         <div className="footer-cv">
 
           <p>
-            Want to know more about my experience?
+            Interested in my background and experience?
           </p>
 
           <a
@@ -108,8 +109,8 @@ function Footer() {
             download
             className="cv-button"
           >
-            Download CV
             <FaDownload />
+            Download CV
           </a>
 
         </div>
@@ -136,7 +137,7 @@ function Footer() {
           </a>
 
           <a
-            href="mailto:modesta@example.com"
+            href="mailto:otienomodesta505@gmail.com"
             aria-label="Email"
           >
             <FaEnvelope />
@@ -146,8 +147,9 @@ function Footer() {
 
       </div>
 
+
       <div className="copyright">
-        © 2026 Modesta Otieno. All rights reserved.
+        © {new Date().getFullYear()} Modesta Otieno. All rights reserved.
       </div>
 
     </footer>
@@ -162,7 +164,6 @@ function Footer() {
 function PageLayout({ children }) {
   return (
     <div className="portfolio">
-
       <Header />
 
       <main>
@@ -170,14 +171,13 @@ function PageLayout({ children }) {
       </main>
 
       <Footer />
-
     </div>
   );
 }
 
 
 /* =========================================================
-   HOME
+   HOME PAGE
 ========================================================= */
 
 function Home() {
@@ -188,25 +188,44 @@ function Home() {
 
       <section className="hero">
 
-        {/* LEFT */}
-
         <div className="hero-content">
 
-          <p className="eyebrow">
+          <div className="eyebrow">
             SOFTWARE DEVELOPER
-          </p>
+          </div>
 
-          <h1>
-            Hi, I'm
-            <br />
-            <span>Modesta Otieno</span>
+
+          <h1 className="hero-title">
+
+            <span className="greeting">
+              Hi, I'm
+            </span>
+
+            <span className="animated-name">
+              Modesta Otieno
+            </span>
+
+            <span className="role-line">
+
+              <span className="role-prefix">
+                I'm a{" "}
+              </span>
+
+              <span className="animated-role">
+                Full-Stack Developer
+              </span>
+
+            </span>
+
           </h1>
 
+
           <p className="hero-description">
-            Software developer focused on building secure,
-            practical, and user-focused applications with Go,
-            React, and Flutter.
+            I'm a software developer with a background in ICT,
+            passionate about learning, building, and solving
+            real-world problems through technology.
           </p>
+
 
           <div className="hero-buttons">
 
@@ -215,9 +234,10 @@ function Home() {
               target="_blank"
               className="btn primary"
             >
-              View My Projects
+              View My Work
               <FaArrowRight />
             </Link>
+
 
             <Link
               to="/contact"
@@ -251,7 +271,7 @@ function Home() {
             </a>
 
             <a
-              href="mailto:modesta@example.com"
+              href="mailto:otienomodesta505@gmail.com"
               aria-label="Email"
             >
               <FaEnvelope />
@@ -262,35 +282,21 @@ function Home() {
         </div>
 
 
-        {/* RIGHT — PHOTO */}
+        {/* PHOTO */}
 
         <div className="hero-visual">
 
           <div className="hero-photo-area">
 
-            <div className="photo-decoration"></div>
-
-            <div className="photo-placeholder">
-
-              <div className="photo-icon">
-                <FaUser />
-              </div>
-
-              <h3>
-                Your Photo Here
-              </h3>
-
-              <p>
-                Add your professional photo later
-              </p>
-
-            </div>
+            <img
+              src="/images/home.jpg"
+              alt="Modesta Otieno"
+              className="hero-profile-image"
+            />
 
             <div className="hero-side-text">
-              CODE
-              <br />
-              CREATE
-              <br />
+              CODE<br />
+              CREATE<br />
               IMPACT
             </div>
 
@@ -307,26 +313,28 @@ function Home() {
 
         <div className="section-container">
 
-          <p className="section-label">
-            01 — ABOUT
-          </p>
+          <div className="section-label">
+            ABOUT ME
+          </div>
 
           <h2>
             Building with purpose.
           </h2>
 
           <p className="section-description">
-            I'm a software developer with a background in ICT,
-            passionate about learning, building, and solving
-            real-world problems through technology.
+            My journey combines technical support, software
+            development, and hands-on project experience.
+            I enjoy understanding how systems work and turning
+            ideas into practical applications.
           </p>
+
 
           <Link
             to="/about"
             target="_blank"
             className="text-link"
           >
-            Learn more about me
+            More about me
             <FaArrowRight />
           </Link>
 
@@ -341,60 +349,62 @@ function Home() {
 
         <div className="section-container">
 
-          <p className="section-label">
-            02 — SKILLS
-          </p>
+          <div className="section-label">
+            WHAT I WORK WITH
+          </div>
 
           <h2>
-            My toolkit.
+            Tools & technologies.
           </h2>
+
 
           <div className="skills-preview">
 
-            <SkillCard
+            <MiniSkill
               icon={<FaCode />}
-              title="Go"
-              subtitle="Backend Development"
+              title="Development"
+              text="Go, C, JavaScript, HTML & CSS"
             />
 
-            <SkillCard
-              icon={<FaLaptopCode />}
-              title="React"
-              subtitle="Frontend Development"
+            <MiniSkill
+              icon={<FaReact />}
+              title="Frontend"
+              text="React, Vite & modern UI development"
             />
 
-            <SkillCard
-              icon={<FaMobileAlt />}
-              title="Flutter"
-              subtitle="Mobile Development"
+            <MiniSkill
+              icon={<FaServer />}
+              title="Backend"
+              text="Go APIs, HTTP servers & services"
             />
 
-            <SkillCard
+            <MiniSkill
               icon={<FaDatabase />}
-              title="PostgreSQL"
-              subtitle="Database"
+              title="Databases"
+              text="PostgreSQL & data-driven applications"
             />
 
-            <SkillCard
-              icon={<FaDocker />}
-              title="Docker"
-              subtitle="Containers"
-            />
-
-            <SkillCard
+            <MiniSkill
               icon={<FaGitAlt />}
-              title="Git"
-              subtitle="Version Control"
+              title="Version Control"
+              text="Git, GitHub & collaborative workflows"
+            />
+
+            <MiniSkill
+              icon={<FaLinux />}
+              title="Linux"
+              text="Linux development & command-line workflows"
             />
 
           </div>
+
 
           <Link
             to="/skills"
             target="_blank"
             className="text-link"
           >
-            View all skills
+            Explore my skills
             <FaArrowRight />
           </Link>
 
@@ -409,35 +419,37 @@ function Home() {
 
         <div className="section-container">
 
-          <p className="section-label">
-            03 — PROJECTS
-          </p>
+          <div className="section-label">
+            SELECTED WORK
+          </div>
 
           <h2>
-            Things I've built.
+            Projects I've built.
           </h2>
+
 
           <div className="projects-preview">
 
-            <ProjectCard
+            <MiniProject
               number="01"
-              name="SEIS"
-              description="Smart Electoral Integrity System"
+              title="SEIS"
+              text="A secure demonstration platform for transparent and verifiable digital elections."
             />
 
-            <ProjectCard
+            <MiniProject
               number="02"
-              name="AXIS"
-              description="Smart Irrigation & Water Management"
+              title="AXIS"
+              text="A smart irrigation platform designed to support efficient water management."
             />
 
-            <ProjectCard
+            <MiniProject
               number="03"
-              name="Zone01"
-              description="Software development projects"
+              title="Zone01"
+              text="A collection of software development projects built while learning and practicing Go."
             />
 
           </div>
+
 
           <Link
             to="/projects"
@@ -453,66 +465,32 @@ function Home() {
       </section>
 
 
-      {/* EXPERIENCE PREVIEW */}
-
-      <section className="home-section">
-
-        <div className="section-container">
-
-          <p className="section-label">
-            04 — EXPERIENCE
-          </p>
-
-          <h2>
-            My journey.
-          </h2>
-
-          <p className="section-description">
-            From ICT support and data operations to software
-            development, my experience has given me practical
-            exposure to technology, troubleshooting, teamwork,
-            and building software solutions.
-          </p>
-
-          <Link
-            to="/experience"
-            target="_blank"
-            className="text-link"
-          >
-            View my experience
-            <FaArrowRight />
-          </Link>
-
-        </div>
-
-      </section>
-
-
       {/* CONTACT PREVIEW */}
 
       <section className="home-section contact-preview">
 
         <div className="section-container">
 
-          <p className="section-label">
-            05 — CONTACT
-          </p>
+          <div className="section-label">
+            HAVE A PROJECT?
+          </div>
 
           <h2>
-            Let's build something.
+            Let's build something meaningful.
           </h2>
 
           <p className="section-description">
-            Have an idea, project, or opportunity?
-            I'd love to connect and learn more about it.
+            I'm interested in opportunities where I can learn,
+            contribute, and build useful technology.
           </p>
 
           <Link
             to="/contact"
             target="_blank"
             className="btn primary"
+            style={{ marginTop: "30px" }}
           >
-            Get In Touch
+            Get in touch
             <FaArrowRight />
           </Link>
 
@@ -526,7 +504,57 @@ function Home() {
 
 
 /* =========================================================
-   ABOUT
+   MINI SKILL
+========================================================= */
+
+function MiniSkill({ icon, title, text }) {
+  return (
+    <div className="mini-skill-card">
+
+      <div className="mini-skill-icon">
+        {icon}
+      </div>
+
+      <h3>
+        {title}
+      </h3>
+
+      <p>
+        {text}
+      </p>
+
+    </div>
+  );
+}
+
+
+/* =========================================================
+   MINI PROJECT
+========================================================= */
+
+function MiniProject({ number, title, text }) {
+  return (
+    <div className="mini-project-card">
+
+      <span>
+        {number}
+      </span>
+
+      <h3>
+        {title}
+      </h3>
+
+      <p>
+        {text}
+      </p>
+
+    </div>
+  );
+}
+
+
+/* =========================================================
+   ABOUT PAGE
 ========================================================= */
 
 function About() {
@@ -535,16 +563,17 @@ function About() {
 
       <section className="page-header">
 
-        <p className="section-label">
-          01 — ABOUT
-        </p>
+        <div className="section-label">
+          ABOUT ME
+        </div>
 
         <h1>
-          About Me
+          Who I am.
         </h1>
 
         <p>
-          A little about my journey into software development.
+          A developer learning, building, and growing through
+          real-world projects and practical experience.
         </p>
 
       </section>
@@ -552,58 +581,43 @@ function About() {
 
       <section className="about-section">
 
-        {/* LEFT PHOTO */}
-
         <div className="about-photo">
 
-          <div className="about-photo-placeholder">
-
-            <div className="photo-icon">
-              <FaUser />
-            </div>
-
-            <h3>
-              Your Photo Here
-            </h3>
-
-            <p>
-              Add your professional photo later
-            </p>
-
-          </div>
+          <img
+            src="/images/about.jpg"
+            alt="Modesta Otieno"
+            className="about-profile-image"
+          />
 
         </div>
 
 
-        {/* RIGHT CONTENT */}
-
         <div className="about-content">
 
-          <p className="section-label">
-            SOFTWARE DEVELOPER
-          </p>
+          <div className="section-label">
+            MY JOURNEY
+          </div>
 
           <h2>
-            Building with purpose.
+            Learning by building.
           </h2>
 
           <p>
-            I'm a software developer with a background in ICT,
-            passionate about learning, building, and solving
-            real-world problems through technology.
+            I'm a software developer with a background in ICT
+            and a growing focus on software development.
           </p>
 
           <p>
-            My journey combines technical support, software
-            development, and hands-on project experience. I enjoy
-            understanding how systems work and turning ideas into
-            practical applications.
+            My experience includes technical support, data
+            operations, software development, and working with
+            technologies such as Go, React, databases, Git,
+            Linux, and Docker.
           </p>
 
           <p>
-            I'm currently developing my skills in Go, React,
-            Flutter, databases, APIs, Git, Linux, and modern
-            software development practices.
+            I enjoy taking an idea, understanding the problem
+            behind it, and turning it into a practical digital
+            solution.
           </p>
 
 
@@ -636,76 +650,26 @@ function About() {
 
 
 /* =========================================================
-   SKILLS
+   SKILLS PAGE
 ========================================================= */
 
 function Skills() {
-  const skills = [
-    {
-      icon: <FaCode />,
-      title: "Go",
-      description:
-        "Backend development, HTTP servers, APIs and application logic.",
-    },
-    {
-      icon: <FaLaptopCode />,
-      title: "React",
-      description:
-        "Building responsive and interactive web interfaces.",
-    },
-    {
-      icon: <FaMobileAlt />,
-      title: "Flutter",
-      description:
-        "Developing cross-platform mobile applications.",
-    },
-    {
-      icon: <FaDatabase />,
-      title: "PostgreSQL",
-      description:
-        "Working with relational databases and application data.",
-    },
-    {
-      icon: <FaDocker />,
-      title: "Docker",
-      description:
-        "Containerizing applications and development environments.",
-    },
-    {
-      icon: <FaGitAlt />,
-      title: "Git & GitHub",
-      description:
-        "Version control, collaboration and project management.",
-    },
-    {
-      icon: <FaServer />,
-      title: "APIs",
-      description:
-        "Building and integrating backend services and REST APIs.",
-    },
-    {
-      icon: <FaCode />,
-      title: "JavaScript",
-      description:
-        "Frontend development and interactive web applications.",
-    },
-  ];
-
   return (
     <PageLayout>
 
       <section className="page-header">
 
-        <p className="section-label">
-          02 — SKILLS
-        </p>
+        <div className="section-label">
+          MY TOOLKIT
+        </div>
 
         <h1>
-          My Toolkit
+          Skills.
         </h1>
 
         <p>
-          Technologies and tools I use to build software.
+          Technologies and tools I use while building,
+          learning, and solving software problems.
         </p>
 
       </section>
@@ -713,23 +677,77 @@ function Skills() {
 
       <section className="skills-grid">
 
-        {skills.map((skill) => (
-          <div className="skill-card" key={skill.title}>
+        <SkillCard
+          icon={<FaCode />}
+          title="Go"
+          text="Building backend applications, HTTP servers, APIs, and command-line programs."
+        />
 
-            <div className="skill-icon">
-              {skill.icon}
-            </div>
+        <SkillCard
+          icon={<FaCode />}
+          title="C"
+          text="Understanding programming fundamentals, algorithms, memory, and systems concepts."
+        />
 
-            <h3>
-              {skill.title}
-            </h3>
+        <SkillCard
+          icon={<FaGlobe />}
+          title="JavaScript"
+          text="Creating interactive web applications and working with modern frontend technologies."
+        />
 
-            <p>
-              {skill.description}
-            </p>
+        <SkillCard
+          icon={<FaReact />}
+          title="React"
+          text="Building component-based user interfaces with React and Vite."
+        />
 
-          </div>
-        ))}
+        <SkillCard
+          icon={<FaMobileAlt />}
+          title="Flutter"
+          text="Exploring cross-platform mobile application development with Flutter and Dart."
+        />
+
+        <SkillCard
+          icon={<FaDatabase />}
+          title="PostgreSQL"
+          text="Working with relational databases and data-driven applications."
+        />
+
+        <SkillCard
+          icon={<FaGitAlt />}
+          title="Git & GitHub"
+          text="Managing source code, branches, commits, collaboration, and project history."
+        />
+
+        <SkillCard
+          icon={<FaLinux />}
+          title="Linux"
+          text="Using Linux for development, terminal workflows, configuration, and deployment."
+        />
+
+        <SkillCard
+          icon={<FaServer />}
+          title="APIs"
+          text="Designing and consuming HTTP APIs and connecting frontend applications to backend services."
+        />
+
+        <SkillCard
+          icon={<FaDatabase />}
+          title="Docker"
+          text="Working with containers and multi-service application environments."
+        />
+
+        <SkillCard
+          icon={<FaCode />}
+          title="HTML & CSS"
+          text="Building responsive and accessible web interfaces with modern CSS."
+        />
+
+        <SkillCard
+          icon={<FaGlobe />}
+          title="Web Development"
+          text="Combining frontend and backend technologies to create complete web applications."
+        />
 
       </section>
 
@@ -739,7 +757,32 @@ function Skills() {
 
 
 /* =========================================================
-   PROJECTS
+   SKILL CARD
+========================================================= */
+
+function SkillCard({ icon, title, text }) {
+  return (
+    <div className="skill-card">
+
+      <div className="skill-icon">
+        {icon}
+      </div>
+
+      <h3>
+        {title}
+      </h3>
+
+      <p>
+        {text}
+      </p>
+
+    </div>
+  );
+}
+
+
+/* =========================================================
+   PROJECTS PAGE
 ========================================================= */
 
 function Projects() {
@@ -748,17 +791,17 @@ function Projects() {
 
       <section className="page-header">
 
-        <p className="section-label">
-          03 — PROJECTS
-        </p>
+        <div className="section-label">
+          SELECTED WORK
+        </div>
 
         <h1>
-          Things I've Built
+          Projects.
         </h1>
 
         <p>
-          A selection of projects I've worked on while learning
-          and building software.
+          A collection of projects where I apply what I'm
+          learning to practical problems.
         </p>
 
       </section>
@@ -766,143 +809,57 @@ function Projects() {
 
       <section className="project-list">
 
-
-        {/* SEIS */}
-
-        <article className="project-card-large">
-
-          <div className="project-number">
-            01
-          </div>
-
-          <div className="project-content">
-
-            <span className="project-category">
-              FULL-STACK APPLICATION
-            </span>
-
-            <h2>
-              Smart Electoral Integrity System
-            </h2>
-
-            <p>
-              A secure demonstration platform that showcases
-              transparent, verifiable and trustworthy digital
-              elections.
-            </p>
-
-            <div className="project-tech">
-              <span>React</span>
-              <span>Go</span>
-              <span>PostgreSQL</span>
-              <span>Docker</span>
-            </div>
-
-            <a
-              href="https://github.com/modeotieno/smart-electoral-integrity-system"
-              target="_blank"
-              rel="noreferrer"
-              className="project-link"
-            >
-              View on GitHub
-              <FaExternalLinkAlt />
-            </a>
-
-          </div>
-
-        </article>
+        <ProjectCard
+          number="01"
+          category="FULL-STACK DEVELOPMENT"
+          title="Smart Electoral Integrity System"
+          description="A secure demonstration platform that showcases transparent, verifiable, and trustworthy digital elections. The system explores secure authentication, role-based access, audit logging, encrypted communication, and results verification workflows."
+          tech={[
+            "React",
+            "Vite",
+            "Go",
+            "Gin",
+            "PostgreSQL",
+            "Docker",
+          ]}
+          link="https://github.com/modeotieno/smart-electoral-integrity-system"
+          linkText="View on GitHub"
+        />
 
 
-        {/* AXIS */}
-
-        <article className="project-card-large">
-
-          <div className="project-number">
-            02
-          </div>
-
-          <div className="project-content">
-
-            <span className="project-category">
-              HACKATHON PROJECT
-            </span>
-
-            <h2>
-              AXIS Smart Irrigation
-            </h2>
-
-            <p>
-              A smart irrigation and water management platform
-              designed to help smallholder farmers make informed
-              irrigation decisions.
-            </p>
-
-            <div className="project-tech">
-              <span>React</span>
-              <span>JavaScript</span>
-              <span>APIs</span>
-              <span>AgriTech</span>
-            </div>
-
-            <a
-              href="https://axis-irrigation.fly.dev/"
-              target="_blank"
-              rel="noreferrer"
-              className="project-link"
-            >
-              View Live Project
-              <FaExternalLinkAlt />
-            </a>
-
-          </div>
-
-        </article>
+        <ProjectCard
+          number="02"
+          category="SMART AGRICULTURE"
+          title="AXIS Smart Irrigation"
+          description="A smart irrigation and water-management platform designed for smallholder farmers. It combines crop information, weather data, irrigation calculations, and water-use recommendations."
+          tech={[
+            "Go",
+            "React",
+            "APIs",
+            "Hargreaves",
+            "Irrigation",
+            "Fly.io",
+          ]}
+          link="https://axis-irrigation.fly.dev/"
+          linkText="View Live Project"
+        />
 
 
-        {/* ZONE01 */}
-
-        <article className="project-card-large">
-
-          <div className="project-number">
-            03
-          </div>
-
-          <div className="project-content">
-
-            <span className="project-category">
-              SOFTWARE DEVELOPMENT
-            </span>
-
-            <h2>
-              Zone01 Projects
-            </h2>
-
-            <p>
-              Hands-on software development projects involving
-              Go, algorithms, APIs, data structures, backend
-              development and problem solving.
-            </p>
-
-            <div className="project-tech">
-              <span>Go</span>
-              <span>Git</span>
-              <span>Linux</span>
-              <span>Algorithms</span>
-            </div>
-
-            <a
-              href="https://github.com/modeotieno"
-              target="_blank"
-              rel="noreferrer"
-              className="project-link"
-            >
-              View GitHub
-              <FaExternalLinkAlt />
-            </a>
-
-          </div>
-
-        </article>
+        <ProjectCard
+          number="03"
+          category="GO DEVELOPMENT"
+          title="Zone01 Projects"
+          description="A collection of software development projects completed while learning Go, including algorithmic challenges, backend development, data structures, and problem-solving exercises."
+          tech={[
+            "Go",
+            "Git",
+            "Linux",
+            "Algorithms",
+            "HTTP",
+          ]}
+          link="https://github.com/modeotieno"
+          linkText="View GitHub"
+        />
 
       </section>
 
@@ -912,7 +869,71 @@ function Projects() {
 
 
 /* =========================================================
-   EXPERIENCE
+   PROJECT CARD
+========================================================= */
+
+function ProjectCard({
+  number,
+  category,
+  title,
+  description,
+  tech,
+  link,
+  linkText,
+}) {
+  return (
+    <article className="project-card-large">
+
+      <div className="project-number">
+        {number}
+      </div>
+
+
+      <div className="project-content">
+
+        <span className="project-category">
+          {category}
+        </span>
+
+        <h2>
+          {title}
+        </h2>
+
+        <p>
+          {description}
+        </p>
+
+
+        <div className="project-tech">
+
+          {tech.map((item) => (
+            <span key={item}>
+              {item}
+            </span>
+          ))}
+
+        </div>
+
+
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="project-link"
+        >
+          {linkText}
+          <FaExternalLinkAlt />
+        </a>
+
+      </div>
+
+    </article>
+  );
+}
+
+
+/* =========================================================
+   EXPERIENCE PAGE
 ========================================================= */
 
 function Experience() {
@@ -921,16 +942,17 @@ function Experience() {
 
       <section className="page-header">
 
-        <p className="section-label">
-          04 — EXPERIENCE
-        </p>
+        <div className="section-label">
+          EXPERIENCE
+        </div>
 
         <h1>
-          My Journey
+          My journey.
         </h1>
 
         <p>
-          Experience, learning and professional development.
+          The experiences and learning environments that have
+          shaped my development journey.
         </p>
 
       </section>
@@ -947,11 +969,12 @@ function Experience() {
             01
           </div>
 
+
           <div className="timeline-content">
 
-            <span className="timeline-date">
+            <div className="timeline-date">
               MAR 2026 — MAY 2026
-            </span>
+            </div>
 
             <h2>
               ICT Support & Data Operations
@@ -962,26 +985,26 @@ function Experience() {
             </h3>
 
             <p>
-              Provided technical support and worked with
-              technology systems in a practical service
-              environment.
+              Supported technical and data-related operations
+              while gaining practical experience working with
+              users, systems, and technology.
             </p>
 
             <ul>
               <li>
-                Technical troubleshooting and support
+                Provided technical support and troubleshooting.
               </li>
 
               <li>
-                Network configuration
+                Assisted with network configuration.
               </li>
 
               <li>
-                Hardware troubleshooting and repair
+                Supported hardware repair and maintenance.
               </li>
 
               <li>
-                Data operations and technical assistance
+                Worked with data operations and digital systems.
               </li>
             </ul>
 
@@ -998,11 +1021,12 @@ function Experience() {
             02
           </div>
 
+
           <div className="timeline-content">
 
-            <span className="timeline-date">
-              CURRENT LEARNING JOURNEY
-            </span>
+            <div className="timeline-date">
+              CURRENT
+            </div>
 
             <h2>
               Software Development Apprentice
@@ -1014,28 +1038,61 @@ function Experience() {
 
             <p>
               Developing practical software engineering skills
-              through hands-on projects, collaboration,
-              problem solving and peer learning.
+              through project-based learning, collaboration,
+              problem solving, and peer learning.
             </p>
 
             <ul>
               <li>
-                Go programming
+                Learning Go and backend development.
               </li>
 
               <li>
-                Algorithms and problem solving
+                Building projects through hands-on practice.
               </li>
 
               <li>
-                Git and collaborative development
+                Using Git and collaborative development workflows.
               </li>
 
               <li>
-                Backend and web development
+                Developing problem-solving and software engineering skills.
               </li>
-
             </ul>
+
+          </div>
+
+        </div>
+
+
+        {/* EDUCATION */}
+
+        <div className="timeline-item">
+
+          <div className="timeline-marker">
+            03
+          </div>
+
+
+          <div className="timeline-content">
+
+            <div className="timeline-date">
+              EDUCATION
+            </div>
+
+            <h2>
+              ICT
+            </h2>
+
+            <h3>
+              Rotary Vocational Training Centre
+            </h3>
+
+            <p>
+              Building a foundation in information and
+              communication technology while developing practical
+              technical skills.
+            </p>
 
           </div>
 
@@ -1049,7 +1106,7 @@ function Experience() {
 
 
 /* =========================================================
-   CONTACT
+   CONTACT PAGE
 ========================================================= */
 
 function Contact() {
@@ -1058,17 +1115,17 @@ function Contact() {
 
       <section className="page-header">
 
-        <p className="section-label">
-          05 — CONTACT
-        </p>
+        <div className="section-label">
+          CONTACT
+        </div>
 
         <h1>
-          Let's Build Something
+          Let's connect.
         </h1>
 
         <p>
-          Have an idea, opportunity, or project?
-          Let's connect.
+          Whether you want to discuss a project, opportunity,
+          collaboration, or simply connect, feel free to reach out.
         </p>
 
       </section>
@@ -1078,14 +1135,20 @@ function Contact() {
 
         <div className="contact-intro">
 
+          <div className="section-label">
+            GET IN TOUCH
+          </div>
+
           <h2>
+            Have an idea?
+            <br />
             Let's talk.
           </h2>
 
           <p>
-            I'm always interested in learning, collaborating,
-            building useful software and connecting with people
-            in technology.
+            I'm open to learning opportunities, software
+            development projects, collaborations, and
+            conversations around technology.
           </p>
 
         </div>
@@ -1093,21 +1156,32 @@ function Contact() {
 
         <div className="contact-details">
 
+
+          {/* EMAIL */}
+
           <a
-            href="mailto:modesta@example.com"
+            href="mailto:otienomodesta505@gmail.com"
             className="contact-item"
           >
+
             <FaEnvelope />
 
             <div>
-              <span>Email</span>
+
+              <span>
+                Email
+              </span>
+
               <strong>
-                modesta@example.com
+                otienomodesta505@gmail.com
               </strong>
+
             </div>
 
           </a>
 
+
+          {/* GITHUB */}
 
           <a
             href="https://github.com/modeotieno"
@@ -1115,17 +1189,25 @@ function Contact() {
             rel="noreferrer"
             className="contact-item"
           >
+
             <FaGithub />
 
             <div>
-              <span>GitHub</span>
+
+              <span>
+                GitHub
+              </span>
+
               <strong>
                 github.com/modeotieno
               </strong>
+
             </div>
 
           </a>
 
+
+          {/* LINKEDIN */}
 
           <a
             href="https://www.linkedin.com/in/modesta-otieno-0551b4408/"
@@ -1133,27 +1215,61 @@ function Contact() {
             rel="noreferrer"
             className="contact-item"
           >
+
             <FaLinkedin />
 
             <div>
-              <span>LinkedIn</span>
+
+              <span>
+                LinkedIn
+              </span>
+
               <strong>
                 Modesta Otieno
               </strong>
+
             </div>
 
           </a>
 
+
+          {/* LOCATION */}
 
           <div className="contact-item">
 
             <FaMapMarkerAlt />
 
             <div>
-              <span>Location</span>
+
+              <span>
+                Location
+              </span>
+
               <strong>
                 Kenya
               </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* ROLE */}
+
+          <div className="contact-item">
+
+            <FaBriefcase />
+
+            <div>
+
+              <span>
+                Focus
+              </span>
+
+              <strong>
+                Software Development
+              </strong>
+
             </div>
 
           </div>
@@ -1163,52 +1279,6 @@ function Contact() {
       </section>
 
     </PageLayout>
-  );
-}
-
-
-/* =========================================================
-   SMALL COMPONENTS
-========================================================= */
-
-function SkillCard({ icon, title, subtitle }) {
-  return (
-    <div className="mini-skill-card">
-
-      <div className="mini-skill-icon">
-        {icon}
-      </div>
-
-      <h3>
-        {title}
-      </h3>
-
-      <p>
-        {subtitle}
-      </p>
-
-    </div>
-  );
-}
-
-
-function ProjectCard({ number, name, description }) {
-  return (
-    <div className="mini-project-card">
-
-      <span>
-        {number}
-      </span>
-
-      <h3>
-        {name}
-      </h3>
-
-      <p>
-        {description}
-      </p>
-
-    </div>
   );
 }
 
@@ -1223,22 +1293,41 @@ function App() {
 
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/about"
+          element={<About />}
+        />
 
-        <Route path="/skills" element={<Skills />} />
+        <Route
+          path="/skills"
+          element={<Skills />}
+        />
 
-        <Route path="/projects" element={<Projects />} />
+        <Route
+          path="/projects"
+          element={<Projects />}
+        />
 
-        <Route path="/experience" element={<Experience />} />
+        <Route
+          path="/experience"
+          element={<Experience />}
+        />
 
-        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
 
       </Routes>
 
     </BrowserRouter>
   );
 }
+
 
 export default App;
