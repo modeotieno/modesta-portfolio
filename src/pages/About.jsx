@@ -7,18 +7,43 @@ function About() {
         <div className="container">
           <div className="section-label">01 — ABOUT</div>
 
-          <h1>Building with purpose.</h1>
+          <div className="about-section">
+            {/* Photo */}
+            <div className="about-photo">
+              <img
+                src="/images/About.jpg"
+                alt="Modesta Otieno"
+                className="about-profile-image"
+              />
+            </div>
 
-          <p className="page-text">
-            I'm a software developer with a background in ICT,
-            passionate about learning, building, and solving
-            real-world problems through technology.
-          </p>
+            {/* Content */}
+            <div className="about-content">
+              <h2>Building with purpose.</h2>
 
-          <div className="qualities">
-            <div>💡 Problem Solver</div>
-            <div>👥 Team Player</div>
-            <div>📚 Continuous Learner</div>
+              <p>
+                I'm a software developer with a background in ICT,
+                passionate about learning, building, and solving
+                real-world problems through technology.
+              </p>
+
+              <div className="about-highlights">
+                <div>
+                  <strong>01</strong>
+                  <span>Problem Solver</span>
+                </div>
+
+                <div>
+                  <strong>02</strong>
+                  <span>Team Player</span>
+                </div>
+
+                <div>
+                  <strong>03</strong>
+                  <span>Continuous Learner</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
