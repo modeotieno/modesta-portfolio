@@ -11,6 +11,33 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 
+function AnimatedName({ text, baseDelay = 0.15, step = 0.035 }) {
+  let index = 0;
+
+  return (
+    <span className="hero-name" aria-label={text}>
+      {text.split(" ").map((word, wordIndex) => (
+        <span className="hero-word" key={wordIndex} aria-hidden="true">
+          {Array.from(word).map((char, charIndex) => {
+            const delay = baseDelay + index * step;
+            index += 1;
+
+            return (
+              <span
+                className="hero-letter"
+                key={charIndex}
+                style={{ animationDelay: `${delay}s` }}
+              >
+                {char}
+              </span>
+            );
+          })}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function Home() {
   return (
     <>
@@ -23,9 +50,7 @@ function Home() {
                 Available for opportunities
               </span>
 
-              <span className="hero-name">
-                I'm Modesta Otieno
-              </span>
+              <AnimatedName text="I'm Modesta Otieno" />
 
               <span className="hero-role">
                 A Full-Stack Developer
@@ -90,7 +115,7 @@ function Home() {
               </a>
 
               <a
-                href="mailto:modestaotieno@gmail.com"
+                href="mailto:otienomodesta505@gmail.com"
                 aria-label="Email"
               >
                 <FaEnvelope />

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   FaLightbulb,
   FaCode,
@@ -5,9 +6,108 @@ import {
   FaBookOpen,
   FaMusic,
   FaFilm,
+  FaDev,
+  FaRegClock,
+  FaHeart,
+  FaArrowRight,
 } from "react-icons/fa";
 
+const DEV_USERNAME = "modeotieno";
+
+const FALLBACK_ARTICLES = [
+  {
+    id: "building-my-developer-portfolio-with-react-and-vite-4545",
+    title: "Building My Developer Portfolio with React and Vite",
+    description:
+      "How I planned, structured and built my personal portfolio using React, Vite and React Router.",
+    url: "https://dev.to/modeotieno/building-my-developer-portfolio-with-react-and-vite-4545",
+    published_at: "2026-10-12T00:00:00Z",
+    reading_time_minutes: 2,
+    tag_list: ["frontend", "learning", "react", "webdev"],
+    positive_reactions_count: 0,
+  },
+  {
+    id: "my-axis-green-economy-hackathon-experience-building-a-smart-irrigation-solution-10j6",
+    title:
+      "My AXIS Green Economy Hackathon Experience: Building a Smart Irrigation Solution",
+    description:
+      "My experience building AXIS, a smart irrigation and water-management solution during a green economy hackathon.",
+    url: "https://dev.to/modeotieno/my-axis-green-economy-hackathon-experience-building-a-smart-irrigation-solution-10j6",
+    published_at: "2026-10-12T00:00:00Z",
+    reading_time_minutes: 2,
+    tag_list: ["careerjourney"],
+    positive_reactions_count: 0,
+  },
+  {
+    id: "building-my-smart-electoral-integrity-system-1lb7",
+    title: "Building My Smart Electoral Integrity System",
+    description:
+      "Designing a secure platform that lets citizens monitor election progress and verify recorded results.",
+    url: "https://dev.to/modeotieno/building-my-smart-electoral-integrity-system-1lb7",
+    published_at: "2026-10-12T00:00:00Z",
+    reading_time_minutes: 2,
+    tag_list: ["learninginpublic"],
+    positive_reactions_count: 0,
+  },
+  {
+    id: "starting-my-go-journey-by-solving-problem-4836",
+    title: "Starting My Go Journey by Solving Problems",
+    description:
+      "How solving programming challenges became my way of learning Go fundamentals.",
+    url: "https://dev.to/modeotieno/starting-my-go-journey-by-solving-problem-4836",
+    published_at: "2026-10-12T00:00:00Z",
+    reading_time_minutes: 2,
+    tag_list: ["programming"],
+    positive_reactions_count: 0,
+  },
+  {
+    id: "my-journey-into-software-development-1a69",
+    title: "My Journey Into Software Development",
+    description:
+      "The curiosity, problem solving and motivation that led me into software development.",
+    url: "https://dev.to/modeotieno/my-journey-into-software-development-1a69",
+    published_at: "2026-10-12T00:00:00Z",
+    reading_time_minutes: 2,
+    tag_list: ["ai", "programming"],
+    positive_reactions_count: 0,
+  },
+];
+
+function formatDate(value) {
+  if (!value) return "";
+  return new Date(value).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
 function About() {
+  const [articles, setArticles] = useState(FALLBACK_ARTICLES);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+
+    fetch(
+      `https://dev.to/api/articles?username=${DEV_USERNAME}&per_page=6`
+    )
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then((data) => {
+        if (active && Array.isArray(data) && data.length > 0) {
+          setArticles(data);
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <>
       <section className="page-hero">
@@ -153,7 +253,7 @@ function About() {
       </section>
 
       {/* =====================================================
-          ARTICLES
+          ARTICLES (synced from DEV Community)
       ===================================================== */}
 
       <section className="section">
@@ -164,34 +264,98 @@ function About() {
             </p>
 
             <h2>
-              Writing & learning
+              Writing &amp; learning
             </h2>
 
             <p>
-              I am interested in documenting what I learn as I continue
-              growing as a developer.
+              I document what I learn as I grow as a developer. My latest
+              posts are pulled straight from my DEV Community profile.
             </p>
           </div>
 
-          <div className="article-card">
-            <div className="article-icon">
+          <div className="articles-grid">
+            {loading
+              ? FALLBACK_ARTICLES.slice(0, 3).map((article) => (
+                  <div
+                    className="article-card article-card-skeleton"
+                    key={article.id}
+                  >
+                    <div className="article-skeleton-line" />
+                    <div className="article-skeleton-line short" />
+                    <div className="article-skeleton-line" />
+                  </div>
+                ))
+              : articles.map((article) => (
+                  <a
+                    className="article-card"
+                    key={article.id}
+                    href={article.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div className="article-card-head">
+                      <div className="article-icon">
+                        <FaDev />
+                      </div>
+
+                      {formatDate(article.published_at) && (
+                        <p className="article-date">
+                          {formatDate(article.published_at)}
+                        </p>
+                      )}
+                    </div>
+
+                    <h3>
+                      {article.title}
+                    </h3>
+
+                    <p>
+                      {article.description}
+                    </p>
+
+                    {Array.isArray(article.tag_list) &&
+                      article.tag_list.length > 0 && (
+                        <div className="article-meta">
+                          {article.tag_list.slice(0, 3).map((tag) => (
+                            <span className="article-tag" key={tag}>
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                    <div className="article-footer">
+                      <span className="article-footer-item">
+                        <FaRegClock />
+                        {article.reading_time_minutes || 2} min
+                      </span>
+
+                      {typeof article.positive_reactions_count === "number" && (
+                        <span className="article-footer-item">
+                          <FaHeart />
+                          {article.positive_reactions_count}
+                        </span>
+                      )}
+
+                      <span className="article-read-more">
+                        Read
+                        <FaArrowRight />
+                      </span>
+                    </div>
+                  </a>
+                ))}
+          </div>
+
+          <div className="articles-cta">
+            <a
+              href={`https://dev.to/${DEV_USERNAME}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-outline"
+            >
               <FaBookOpen />
-            </div>
-
-            <div>
-              <p className="article-date">
-                Coming soon
-              </p>
-
-              <h3>
-                My developer learning journey
-              </h3>
-
-              <p>
-                I will be sharing notes, lessons and practical experiences
-                from my journey into software development.
-              </p>
-            </div>
+              See all articles on DEV
+            </a>
           </div>
         </div>
       </section>
