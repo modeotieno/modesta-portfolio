@@ -41,8 +41,8 @@ function Contact() {
               Send me an email for professional enquiries.
             </p>
 
-            <a href="mailto:modestaotieno@gmail.com">
-              modestaotieno@gmail.com
+            <a href="mailto:otienomodesta505@gmail.com">
+              otienomodesta505@gmail.com
             </a>
           </div>
 

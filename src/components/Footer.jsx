@@ -44,7 +44,7 @@ function Footer() {
           </a>
 
           <a
-            href="mailto:modestaotieno@gmail.com"
+            href="mailto:otienomodesta505@gmail.com"
             aria-label="Email"
           >
             <FaEnvelope />
